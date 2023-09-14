@@ -3,21 +3,33 @@ import axios from 'axios'
 import {server} from '../index'
 import { Container, HStack, VStack,Image,Heading,Text } from '@chakra-ui/react';
 import Loader from './Loader';
+import ErrorComponent from './ErrorComponent';
 const Exchanges = () => {
 
   const [exchanges, setExchanges] = useState([]) ;
   const [loading, setLoading] = useState(true) ;
+  const [error, setError] = useState(false) ;
+
   useEffect(() => {
     const fecthExchanges = async () => {
-      const {data} = await axios.get(`${server}/exchanges`)
-       console.log(data)
-      setExchanges(data);
-      setLoading(false);
+      try{
+        const {data} = await axios.get(`${server}/exchanges`)
+         console.log(data)
+        setExchanges(data);
+        setLoading(false);
+
+      }catch(error){
+        console.log(error);  
+        setError(true);
+        setLoading(false);
+
+      }
     }
     fecthExchanges()  ;
 
   }, []);
   
+  if(error) return <ErrorComponent/>
 
   return (
     <Container maxW={'container.xl'}>
