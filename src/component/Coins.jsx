@@ -46,7 +46,7 @@ const Coins = () => {
     <Container maxW={'container.xl'}>
       {loading ? <Loader/> : <>
       
-      <HStack wrap={'wrap'}>
+      <HStack wrap={'wrap'} justifyContent={'space-evenly'}>
         {
           Coins.map((i) => (
             <CoinsCard
@@ -73,6 +73,11 @@ const Coins = () => {
             key={index}
             bgColor={"blackAlpha.900"}
             color={"white"}
+            _hover={{
+              bg: 'blue.500', 
+              transform: 'scale(1.1)', 
+              cursor: 'pointer', 
+            }}
             onClick={() => changePage(index+1)}
             className={`btn ${page === index+1 ? "active" : null}`}
             >
