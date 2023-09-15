@@ -7,14 +7,14 @@ function ErrorPage() {
 
   return (
     <Center
-      h="100vh"
+      h="90vh"
       bg="rgba(0, 0, 0, 0.1)" // Semi-transparent overlay
       position="fixed"
-      top="0"
+      top="10vh"
       left="0"
       right="0"
       bottom="0"
-      zIndex="9999"
+      zIndex="0"
     >
       <Box
         p={4}

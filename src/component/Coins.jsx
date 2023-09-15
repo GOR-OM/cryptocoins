@@ -50,6 +50,7 @@ const Coins = () => {
         {
           Coins.map((i) => (
             <CoinsCard
+            id= {i.id}
             key={i.id}
             name={i.name}
             img={i.image}
