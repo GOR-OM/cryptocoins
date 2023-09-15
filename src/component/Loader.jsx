@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Center, Spinner, Text, VStack } from '@chakra-ui/react';
+import {  Center, Spinner, Text, VStack } from '@chakra-ui/react';
 
 function LoadingPage() {
   return (

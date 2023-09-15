@@ -1,9 +1,52 @@
-import React from 'react'
+import React from 'react';
+import { Box, Center, Icon, Text, VStack, Button } from '@chakra-ui/react';
+import { FaExclamationCircle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+function ErrorPage() {
+  
 
-const ErrorComponent = () => {
   return (
-    <div>ErrorComponent</div>
-  )
+    <Center
+      h="100vh"
+      bg="rgba(0, 0, 0, 0.1)" // Semi-transparent overlay
+      position="fixed"
+      top="0"
+      left="0"
+      right="0"
+      bottom="0"
+      zIndex="9999"
+    >
+      <Box
+        p={4}
+        borderRadius="lg"
+        boxShadow="xl"
+        bg="white"
+        textAlign="center"
+        minW="300px"
+      >
+        <Icon as={FaExclamationCircle} boxSize={12} color="red.500" />
+        <VStack spacing={4}>
+          <Text fontSize="2xl" fontWeight="bold" color={'red.500'}>
+            Oops! Something went wrong.
+          </Text>
+          <Text fontSize="lg" color={'red.500'}>
+            We apologize, but there was an error processing your request.
+          </Text>
+          <Link to="/">
+          <Button
+            colorScheme="blue"
+            
+            size="lg"
+            fontSize="md"
+          >
+            Back to Home Page
+          </Button>
+          </Link>
+          
+        </VStack>
+      </Box>
+    </Center>
+  );
 }
 
-export default ErrorComponent
+export default ErrorPage;
