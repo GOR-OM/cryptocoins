@@ -2,10 +2,11 @@ import { Box, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import btcSrc from "../assets/btc.png";
 import { motion } from "framer-motion";
-
+import { useColorMode } from "@chakra-ui/react";
 const Home = () => {
+  const {colorMode} = useColorMode();
   return (
-    <Box bgColor={"blackAlpha.900"} w={"full"} h={"90vh"}>
+    <Box bgColor={colorMode === 'dark' ? 'blackAlpha.900' : 'whiteAlpha.500'}w={"full"} h={"90vh"}>
       <motion.div
         style={{
           height: "80vh",
@@ -32,7 +33,7 @@ const Home = () => {
         fontSize={"6xl"}
         textAlign={"center"}
         fontWeight={"thin"}
-        color={"whiteAlpha.700"}
+        color={colorMode === 'light' ? 'blackAlpha.900' : 'whiteAlpha.500'}
         mt={"-20"}
       >
         CoinWatcher
